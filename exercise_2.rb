@@ -1,7 +1,9 @@
 def get_products_of_all_ints_except_at_index(array)
-  array.map do |num|
-    (array - [num]).reduce(:*)
+  array.each_index.map do |i|
+    temp_array = array.dup
+    temp_array.delete_at(i)
+    temp_array.reduce(:*)
   end
 end
 
-p get_products_of_all_ints_except_at_index([1, 7, 3, 4])
+p get_products_of_all_ints_except_at_index([3, 3, 3, 3])
